@@ -4,7 +4,7 @@
     app.directive('wall', ['$window', function($window) {
         return {
             restrict:'E',
-            templateUrl:'/templates/wall.html',
+            templateUrl:'templates/wall.html',
             controller:function() {
                 this.addCard = function() {
                     var elem = this.addElement()
