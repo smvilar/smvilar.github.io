@@ -1,0 +1,156 @@
+:root {
+  --white: #f3f3f3;
+  --gray: #c4c4c4;
+  --light-gray: #d3d3d3;
+  --dark-gray: #979797;
+  --background: #2c365e;
+  --primary: #00a6ed;
+  --secondary: #f6511d;
+  --tertiary: #ffb400;
+  --quaternary: #7fb800;
+}
+
+@keyframes floating {
+  0% {
+    transform: rotate(1deg);
+  }
+  100% {
+    transform: rotate(-1deg);
+  }
+}
+
+body {
+  margin: 0;
+  font-family: Ruda, "Helvetica Neue", "Arial Narrow", sans-serif;
+  background-color: var(--background);
+  position: relative;
+}
+
+main {
+  padding: 2rem 10%;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 2fr;
+  grid-template-rows:
+    auto
+    3fr
+    auto
+    1fr
+    auto;
+  grid-template-areas:
+    ". header header header"
+    ". . . ."
+    ". . main main"
+    ". . . ."
+    "links links links .";
+  max-width: 70rem;
+  min-height: calc(100vh - 4rem);
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 800px) {
+  main {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "."
+      "main"
+      "."
+      "links";
+  }
+}
+
+header {
+  grid-area: header;
+  background-color: var(--primary);
+  color: var(--white);
+  line-height: 1.2;
+  animation: 3s ease-in-out infinite alternate floating;
+}
+
+header h1 {
+  margin: 0;
+  text-align: right;
+  font-size: 4rem;
+}
+
+article {
+  grid-area: main;
+  background-color: var(--secondary);
+  color: var(--white);
+  font-size: 2rem;
+  animation: 2s ease-in-out -0.6s infinite alternate floating;
+}
+
+aside {
+  grid-area: links;
+  background-color: var(--tertiary);
+  color: var(--white);
+  animation: 5s ease-in-out -1.3s infinite alternate floating;
+}
+
+header,
+article,
+aside {
+  padding: 0.25rem 1rem;
+  text-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
+}
+
+ul {
+  list-style: square;
+}
+
+li {
+  line-height: 1.5;
+}
+
+a {
+  text-shadow: none;
+  color: var(--secondary);
+  text-decoration: underline wavy;
+}
+a:visited {
+  color: var(--background);
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.background img {
+  margin-top: 4vh;
+  margin-left: 15vw;
+  width: 60vh;
+  height: 60vh;
+  max-width: 90vw;
+  max-height: 90vw;
+  border-radius: 50%;
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
+}
+
+.background [class^="block"] {
+  position: absolute;
+  top: 80%;
+  left: 0;
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
+}
+
+.background .block1 {
+  width: 100rem;
+  height: 100rem;
+  transform: translate(-50rem) rotate(24deg);
+  background-color: var(--primary);
+}
+
+.background .block2 {
+  width: 100rem;
+  height: 100rem;
+  transform: translate(70vw) rotate(-24deg);
+  background-color: var(--quaternary);
+}
