@@ -155,7 +155,7 @@ a:visited {
 
 .background [class^="block"] {
   position: absolute;
-  top: 80%;
+  bottom: -75rem;
   left: 0;
   box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
 }
@@ -164,12 +164,12 @@ a:visited {
   width: 100rem;
   height: 100rem;
   transform: translate(-50rem) rotate(24deg);
-  background-color: var(--primary);
+  background-color: var(--quaternary);
 }
 
 .background .block2 {
   width: 100rem;
   height: 100rem;
-  transform: translate(70vw) rotate(-24deg);
-  background-color: var(--quaternary);
+  transform: translate(50vw) rotate(-24deg);
+  background-color: var(--primary);
 }
